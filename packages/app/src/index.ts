@@ -1,6 +1,6 @@
 import { get, omit } from "lodash-es";
 import axios from "axios";
-import { default as pino } from "pino";
+import pino from "pino";
 import { isGlobalAuth, readConfig } from "@cloudflare-ddns/config";
 import { registerParser } from "@cloudflare-ddns/ip-echo-parser";
 import { fetchIPv4, fetchIPv6 } from "./ip.js";
@@ -87,7 +87,7 @@ const registerParsers = (config: Config): void => {
 const main = async (): Promise<void> => {
   const configPath = getConfigFilePath();
   const config = await readConfig(configPath);
-  const logger = pino({ level: config.logLevel });
+  const logger = pino.default({ level: config.logLevel });
   try {
     const ctx: Context = { config, logger };
     logger.info("Cloudflare DDNS start");
