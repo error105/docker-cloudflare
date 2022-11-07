@@ -14,7 +14,7 @@ jobs:
       - name: Install script dependencies
         run: npm ci
       - name: Build
-        run: npm run build --workspaces
+        run: npm run build
       - name: Run unit tests
         run: npm run test
   lint:

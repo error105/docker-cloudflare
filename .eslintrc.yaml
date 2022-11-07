@@ -16,7 +16,6 @@ ignorePatterns:
   - "**/*.generated.ts"
   - "**/generated/index.ts"
   - "**/*.d.ts"
-  - "**/test-lib"
 rules:
   array-callback-return: error
   arrow-body-style:

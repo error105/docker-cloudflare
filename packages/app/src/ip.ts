@@ -5,7 +5,7 @@ import { getParser } from "@cloudflare-ddns/ip-echo-parser";
 import { verifySchema } from "@cloudflare-ddns/schema";
 
 import type { IpEcho } from "@cloudflare-ddns/config";
-import type { Context } from "./context";
+import type { Context } from "./context.js";
 
 interface CheckIp {
   (ip: string): void;

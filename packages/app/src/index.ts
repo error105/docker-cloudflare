@@ -3,12 +3,12 @@ import axios from "axios";
 import { isGlobalAuth, readConfig } from "@cloudflare-ddns/config";
 import { createLogger } from "@cloudflare-ddns/log";
 import { registerParser } from "@cloudflare-ddns/ip-echo-parser";
-import { fetchIPv4, fetchIPv6 } from "./ip";
-import { updateDns } from "./api";
-import { getConfigFilePath } from "./env";
+import { fetchIPv4, fetchIPv6 } from "./ip.js";
+import { updateDns } from "./api.js";
+import { getConfigFilePath } from "./env.js";
 
 import type { Config, Domain, WebhookFormatter } from "@cloudflare-ddns/config";
-import type { Context } from "./context";
+import type { Context } from "./context.js";
 
 const updateDomain = async (ctx: Context, domain: Domain): Promise<unknown> => {
   const { config, logger } = ctx;

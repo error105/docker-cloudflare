@@ -1,6 +1,6 @@
-import { axiosInstance, createRequestConfig } from "./base";
+import { axiosInstance, createRequestConfig } from "./base.js";
 
-import type { Api } from "./base";
+import type { Api } from "./base.js";
 
 interface Argument {
   zoneId: string;

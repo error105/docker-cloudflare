@@ -1,6 +1,6 @@
-import lodash from "lodash";
+import { isFunction, isObject, isUndefined } from "lodash-es";
 
-import { pool } from "./pool";
+import { pool } from "./pool.js";
 
 export interface IpEchoFunction<T = void> {
   (echo: string, opts: T): Promise<string>;
@@ -12,13 +12,13 @@ export interface IpEchoPackage<T = void> {
 }
 
 const isIpEchoFunction = (parser: unknown): parser is IpEchoFunction =>
-  lodash.isFunction(parser);
+  isFunction(parser);
 
 const isSchema = (schema: unknown): boolean =>
-  lodash.isUndefined(schema) || lodash.isObject(schema);
+  isUndefined(schema) || isObject(schema);
 
 export const isIpEchoPackage = (pkg: unknown): pkg is IpEchoPackage<any> => {
-  if (!lodash.isObject(pkg)) {
+  if (!isObject(pkg)) {
     return false;
   }
   return isIpEchoFunction(pkg["parser"]) && isSchema(pkg["schema"]);

@@ -1,11 +1,15 @@
-import path from "path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-import { readFileConfig } from "../file-config";
+import { readFileConfig } from "../file-config.js";
 
+const currentDir = dirname(fileURLToPath(import.meta.url));
 const getConfigPath = (file: string): string =>
-  path.join(__dirname, "..", "..", "data", file);
+  join(currentDir, "..", "..", "data", file);
 
-test("minimal.yaml", async () => {
-  const cfgPath = getConfigPath("minimal.yaml");
-  await readFileConfig(cfgPath);
+describe("file-config", () => {
+  it("minimal.yaml", async () => {
+    const cfgPath = getConfigPath("minimal.yaml");
+    await readFileConfig(cfgPath);
+  });
 });

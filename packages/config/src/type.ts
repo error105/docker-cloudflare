@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { has } from "lodash-es";
 
 export interface GlobalAuth {
   /**
@@ -21,7 +21,7 @@ export interface ScopedAuth {
 export type Auth = ScopedAuth | GlobalAuth;
 
 export const isGlobalAuth = (auth: Auth): auth is GlobalAuth =>
-  _.has(auth, "email");
+  has(auth, "email");
 
 export type RecordType = "A" | "AAAA";
 
@@ -58,7 +58,7 @@ export interface ZoneNameDomain extends BaseDomain {
 export type Domain = ZoneIdDomain | ZoneNameDomain;
 
 export const isZoneIdDomain = (domain: Domain): domain is ZoneIdDomain =>
-  _.has(domain, "zoneId");
+  has(domain, "zoneId");
 
 export interface IpEcho {
   type: string;

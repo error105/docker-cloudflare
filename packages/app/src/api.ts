@@ -6,10 +6,10 @@ import {
 } from "@cloudflare-ddns/api";
 import _ from "lodash";
 import { isZoneIdDomain } from "@cloudflare-ddns/config";
-import { CloudflareApiError, CloudflareError, wrapError } from "./error";
+import { CloudflareApiError, CloudflareError, wrapError } from "./error.js";
 
 import type { Domain } from "@cloudflare-ddns/config";
-import type { Context } from "./context";
+import type { Context } from "./context.js";
 
 interface Record {
   domain: Domain;

@@ -1,7 +1,7 @@
-import { readFileConfig } from "./file-config";
-import { readEnvConfig } from "./env-config";
+import { readFileConfig } from "./file-config.js";
+import { readEnvConfig } from "./env-config.js";
 
-import type { Auth, Domain, IpEcho, IpEchoParser } from "./type";
+import type { Auth, Domain, IpEcho, IpEchoParser } from "./type.js";
 
 export interface UserConfig {
   api?: string;

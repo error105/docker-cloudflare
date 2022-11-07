@@ -1,5 +1,8 @@
-import Ajv from "ajv";
-import addFormats from "ajv-formats";
+import ajv from "ajv";
+import ajvFormats from "ajv-formats";
+
+const Ajv = ajv.default;
+const addFormats = ajvFormats.default;
 
 import type { ErrorObject, FuncKeywordDefinition } from "ajv";
 

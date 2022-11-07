@@ -1,9 +1,9 @@
 import { cosmiconfig } from "cosmiconfig";
 import { verifySchema } from "@cloudflare-ddns/schema";
+import schema from "./config.schema.json" assert { type: "json" };
 
-import type { Domain } from "./type";
-import type { ConfigSchema, Domain as FileDomain } from "./schema";
-import schema from "./config.schema.json";
+import type { Domain } from "./type.js";
+import type { ConfigSchema, Domain as FileDomain } from "./schema.js";
 
 export type FileConfig = Omit<ConfigSchema, "domains"> & {
   domains: Domain[];
