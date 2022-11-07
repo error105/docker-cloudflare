@@ -1,9 +1,10 @@
 import {
   createLogger as createWinstonLogger,
   format,
-  Logger,
   transports
 } from "winston";
+
+import type { Logger } from "winston";
 
 export const createLogger = (level: string): Logger => {
   const option = {

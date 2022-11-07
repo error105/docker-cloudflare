@@ -1,11 +1,11 @@
 import _ from "lodash";
 import axios from "axios";
 import { isIPv4, isIPv6 } from "net";
-import { IpEcho } from "@cloudflare-ddns/config";
 import { getParser } from "@cloudflare-ddns/ip-echo-parser";
 import { verifySchema } from "@cloudflare-ddns/schema";
 
-import { Context } from "./context";
+import type { IpEcho } from "@cloudflare-ddns/config";
+import type { Context } from "./context";
 
 interface CheckIp {
   (ip: string): void;

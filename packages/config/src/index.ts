@@ -1,8 +1,8 @@
 import lodash from "lodash";
-
-import { Config } from "./type";
 import { readUserConfig } from "./user-config";
 import { defaultConfig } from "./default-config";
+
+import type { Config } from "./type";
 
 export const readConfig = async (path: string): Promise<Config> => {
   const userConfig = await readUserConfig(path);

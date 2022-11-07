@@ -1,20 +1,14 @@
 import _ from "lodash";
 import axios from "axios";
-import {
-  Config,
-  Domain,
-  isGlobalAuth,
-  readConfig
-} from "@cloudflare-ddns/config";
+import { isGlobalAuth, readConfig } from "@cloudflare-ddns/config";
 import { createLogger } from "@cloudflare-ddns/log";
 import { registerParser } from "@cloudflare-ddns/ip-echo-parser";
-
 import { fetchIPv4, fetchIPv6 } from "./ip";
 import { updateDns } from "./api";
-import { Context } from "./context";
 import { getConfigFilePath } from "./env";
 
-import type { WebhookFormatter } from "@cloudflare-ddns/config";
+import type { Config, Domain, WebhookFormatter } from "@cloudflare-ddns/config";
+import type { Context } from "./context";
 
 const updateDomain = async (ctx: Context, domain: Domain): Promise<unknown> => {
   const { config, logger } = ctx;

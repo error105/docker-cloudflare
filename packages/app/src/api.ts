@@ -5,10 +5,11 @@ import {
   updateDNSRecords
 } from "@cloudflare-ddns/api";
 import _ from "lodash";
-import { Domain, isZoneIdDomain } from "@cloudflare-ddns/config";
-
-import { Context } from "./context";
+import { isZoneIdDomain } from "@cloudflare-ddns/config";
 import { CloudflareApiError, CloudflareError, wrapError } from "./error";
+
+import type { Domain } from "@cloudflare-ddns/config";
+import type { Context } from "./context";
 
 interface Record {
   domain: Domain;

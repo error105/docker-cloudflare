@@ -1,7 +1,7 @@
-import Ajv, { ErrorObject } from "ajv";
+import Ajv from "ajv";
 import addFormats from "ajv-formats";
 
-import type { FuncKeywordDefinition } from "ajv";
+import type { ErrorObject, FuncKeywordDefinition } from "ajv";
 
 export class SchemaViolationError extends Error {
   public errors: ErrorObject[];

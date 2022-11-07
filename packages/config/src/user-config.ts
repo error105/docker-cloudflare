@@ -1,6 +1,7 @@
-import { Auth, Domain, IpEcho, IpEchoParser } from "./type";
 import { readFileConfig } from "./file-config";
 import { readEnvConfig } from "./env-config";
+
+import type { Auth, Domain, IpEcho, IpEchoParser } from "./type";
 
 export interface UserConfig {
   api?: string;

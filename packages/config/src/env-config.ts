@@ -1,4 +1,4 @@
-import { GlobalAuth, ZoneNameDomain } from "./type";
+import type { GlobalAuth, ZoneNameDomain } from "./type";
 
 export interface EnvConfig {
   auth: GlobalAuth;
