@@ -15,8 +15,7 @@
     "build": "tsc --build packages/tsconfig.json",
     "start": "node packages/app",
     "test": "mocha",
-    "lint": "eslint packages/**/*.ts",
-    "release": "semantic-release"
+    "lint": "eslint packages/**/*.ts"
   },
   "repository": {
     "type": "git",
