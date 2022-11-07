@@ -11,7 +11,6 @@
     { "path": "../ip-echo-parser-ini" },
     { "path": "../ip-echo-parser-json" },
     { "path": "../ip-echo-parser-text" },
-    { "path": "../log" },
     { "path": "../schema" }
   ]
 }

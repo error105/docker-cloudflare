@@ -4,7 +4,7 @@ import {
   listZones,
   updateDNSRecords
 } from "@cloudflare-ddns/api";
-import _ from "lodash";
+import { first } from "lodash-es";
 import { isZoneIdDomain } from "@cloudflare-ddns/config";
 import { CloudflareApiError, CloudflareError, wrapError } from "./error.js";
 
@@ -33,7 +33,7 @@ const getZoneId = async (ctx: Context, record: Record): Promise<string> => {
     if (!success || !result) {
       throw new CloudflareApiError(errors);
     }
-    const zoneId = _.first(result)?.id;
+    const zoneId = first(result)?.id;
     if (!zoneId) {
       throw new CloudflareError("No match zone found");
     }
@@ -70,7 +70,7 @@ const getDNSRecord = async (
     if (!success || !result) {
       throw new CloudflareApiError(errors);
     }
-    return _.first(result);
+    return first(result);
   } catch (e) {
     throw wrapError(e);
   }

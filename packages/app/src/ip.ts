@@ -1,4 +1,4 @@
-import _ from "lodash";
+import { get } from "lodash-es";
 import axios from "axios";
 import { isIPv4, isIPv6 } from "net";
 import { getParser } from "@cloudflare-ddns/ip-echo-parser";
@@ -42,7 +42,7 @@ const fetchIP =
         return ip;
       } catch (e) {
         ctx.logger.warn(
-          `Fail to fetch ip from ${url}. (${_.get(e, "message", e)})`
+          `Fail to fetch ip from ${url}. (${get(e, "message", e)})`
         );
       }
     }
