@@ -10,7 +10,7 @@ COPY packages /app/packages/
 COPY package.json tsconfig.json package-lock.json /app/
 
 RUN npm ci && \
-    npm run build -- --declaration false --sourceMap false && \
+    npm run build && \
     rm -rf packages/*/lib/__tests__
 
 RUN mkdir /packages && \
