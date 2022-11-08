@@ -4,6 +4,5 @@
     "rootDir": "src",
     "outDir": "lib"
   },
-  "include": ["src/**/*.ts", "src/**/*.json"],
-  "references": [{ "path": "../schema" }]
+  "include": ["src/**/*.ts", "src/**/*.json"]
 }

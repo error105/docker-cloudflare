@@ -1,14 +1,18 @@
-import { assignWith, isUndefined } from "lodash-es";
-import { readUserConfig } from "./user-config.js";
+import { merge } from "lodash-es";
+import { readFileConfig } from "./file/index.js";
+import { readEnvConfig } from "./env/index.js";
 import { defaultConfig } from "./default-config.js";
 
 import type { Config } from "./type.js";
+import type { Context } from "./context.js";
 
-export const readConfig = async (path: string): Promise<Config> => {
-  const userConfig = await readUserConfig(path);
-  return assignWith(userConfig, defaultConfig, (obj, src) =>
-    isUndefined(obj) ? src : obj
-  );
+export const readConfig = async (
+  ctx: Context,
+  path: string
+): Promise<Config> => {
+  const fileConfig = await readFileConfig(path);
+  const envConfig = readEnvConfig(ctx);
+  return merge({}, defaultConfig, fileConfig as any, envConfig as any);
 };
 
 export * from "./type.js";

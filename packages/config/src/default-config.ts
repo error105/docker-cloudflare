@@ -2,7 +2,6 @@ import type { Config } from "./type.js";
 
 export const defaultConfig: Omit<Config, "auth" | "domains"> = {
   api: "https://api.cloudflare.com/client/v4/",
-  logLevel: "info",
   ipv4: [
     {
       type: "ini",

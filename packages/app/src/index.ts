@@ -1,7 +1,7 @@
 import { get, omit } from "lodash-es";
 import axios from "axios";
 import pino from "pino";
-import { isGlobalAuth, readConfig } from "@cloudflare-ddns/config";
+import { readConfig } from "@cloudflare-ddns/config";
 import { registerParser } from "@cloudflare-ddns/ip-echo-parser";
 import { fetchIPv4, fetchIPv6 } from "./ip.js";
 import { updateDns } from "./api.js";
@@ -71,13 +71,6 @@ const printConfig = (ctx: Context): void => {
   logger.debug(`Running with the following configuration:\n${configStr}`);
 };
 
-const warnGlobalApiKey = (ctx: Context): void => {
-  const { config, logger } = ctx;
-  if (isGlobalAuth(config.auth)) {
-    logger.warn("Global API key is depreciated. Please use API token instead.");
-  }
-};
-
 const registerParsers = (config: Config): void => {
   config.echoParsers.forEach(({ resolve, alias }) =>
     registerParser(resolve, alias)
@@ -86,14 +79,14 @@ const registerParsers = (config: Config): void => {
 
 const main = async (): Promise<void> => {
   const configPath = getConfigFilePath();
-  const config = await readConfig(configPath);
-  const logger = pino.default({ level: config.logLevel });
+  const logLevel = process.env.CF_DNS_LOG_LEVEL ?? "info";
+  const logger = pino.default({ level: logLevel });
+  const config = await readConfig({ logger }, configPath);
   try {
     const ctx: Context = { config, logger };
     logger.info("Cloudflare DDNS start");
     registerParsers(config);
     printConfig(ctx);
-    warnGlobalApiKey(ctx);
     await updateDnsRecords(ctx);
   } catch (e) {
     logger.error(get(e, "message", e));

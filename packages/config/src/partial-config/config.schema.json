@@ -8,16 +8,9 @@
       "type": "string",
       "description": "Cloudflare V4 API url. Default to \"https://api.cloudflare.com/client/v4/\"."
     },
-    "logLevel": {
-      "type": "string",
-      "description": "Level of logging. Default to \"info\""
-    },
     "auth": {
       "description": "Authentication used to interact with API.",
-      "oneOf": [
-        { "$ref": "#/definitions/scopedAuth" },
-        { "$ref": "#/definitions/globalAuth" }
-      ]
+      "oneOf": [{ "$ref": "#/definitions/scopedAuth" }]
     },
     "domains": {
       "type": "array",
@@ -48,25 +41,8 @@
       }
     }
   },
-  "required": ["auth", "domains"],
   "additionalProperties": false,
   "definitions": {
-    "globalAuth": {
-      "type": "object",
-      "properties": {
-        "email": {
-          "type": "string",
-          "format": "email",
-          "description": "DEPRECIATED. Email address associated with your Cloudflare account."
-        },
-        "globalToken": {
-          "type": "string",
-          "description": "DEPRECIATED. API key generated on the \"My Account\" page."
-        }
-      },
-      "required": ["email", "globalToken"],
-      "additionalProperties": false
-    },
     "scopedAuth": {
       "type": "object",
       "properties": {

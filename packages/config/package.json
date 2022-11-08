@@ -32,10 +32,12 @@
   },
   "homepage": "https://github.com/joshuaavalon/docker-cloudflare/packages/config#readme",
   "devDependencies": {
-    "@types/lodash-es": "^4.17.6"
+    "@types/lodash-es": "^4.17.6",
+    "dotenv": "^16.0.3"
   },
   "dependencies": {
-    "@cloudflare-ddns/schema": "^1.0.0",
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
     "cosmiconfig": "^7.0.1",
     "lodash-es": "^4.17.21",
     "pino": "^8.7.0"

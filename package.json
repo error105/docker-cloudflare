@@ -15,7 +15,8 @@
     "build": "tsc --build packages/tsconfig.json",
     "start": "node packages/app",
     "test": "mocha",
-    "lint": "eslint packages/**/*.ts"
+    "lint": "eslint packages/**/*.ts",
+    "clear": "rimraf packages/*/lib packages/*/tsconfig.tsbuildinfo"
   },
   "repository": {
     "type": "git",
