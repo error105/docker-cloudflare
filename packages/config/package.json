@@ -40,6 +40,7 @@
     "ajv-formats": "^2.1.1",
     "cosmiconfig": "^7.0.1",
     "lodash-es": "^4.17.21",
-    "pino": "^8.7.0"
+    "pino": "^8.7.0",
+    "read-env-vars": "^1.0.0"
   }
 }

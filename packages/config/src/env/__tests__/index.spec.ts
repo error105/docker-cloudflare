@@ -1,7 +1,6 @@
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { assert } from "chai";
-import pino from "pino";
 import dotenv from "dotenv";
 
 import { readEnvConfig } from "../index.js";
@@ -14,7 +13,7 @@ describe("env-config", () => {
   it("minimal.env", async () => {
     const path = getConfigPath("minimal.env");
     dotenv.config({ path, override: true });
-    const config = readEnvConfig({ logger: pino.default() });
+    const config = readEnvConfig();
 
     assert.strictEqual(config.auth?.scopedToken, "example", "scopedToken");
     assert.strictEqual(config.domains?.length, 1, "domains.length");

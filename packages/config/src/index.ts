@@ -11,7 +11,7 @@ export const readConfig = async (
   path: string
 ): Promise<Config> => {
   const fileConfig = await readFileConfig(path);
-  const envConfig = readEnvConfig(ctx);
+  const envConfig = readEnvConfig();
   return merge({}, defaultConfig, fileConfig as any, envConfig as any);
 };
 
