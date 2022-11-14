@@ -1,5 +1,5 @@
 import { get, isString } from "lodash-es";
-import optionsSchema from "./options.schema.json";
+import optionsSchema from "./options.schema.json" assert { type: "json" };
 
 import type { IpEchoFunction } from "@cloudflare-ddns/ip-echo-parser";
 

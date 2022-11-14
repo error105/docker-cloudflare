@@ -1,6 +1,6 @@
 import type { IpEchoFunction } from "@cloudflare-ddns/ip-echo-parser";
 
-import optionsSchema from "./options.schema.json";
+import optionsSchema from "./options.schema.json" assert { type: "json" };
 
 interface Options {
   trim?: boolean;

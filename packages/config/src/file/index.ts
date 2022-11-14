@@ -35,9 +35,13 @@ const mapDomain = (domain: FileDomain): Domain => {
 };
 
 export const readFileConfig = async (path: string): Promise<PartialConfig> => {
-  const cc = cosmiconfig("cloudflare");
-  const cfg = await cc.load(path);
-  const fileCfg = verifyPartialConfig(cfg?.config);
-  const { domains, ...others } = fileCfg;
-  return { ...others, domains: domains?.map(mapDomain) };
+  try {
+    const cc = cosmiconfig("cloudflare");
+    const cfg = await cc.load(path);
+    const fileCfg = verifyPartialConfig(cfg?.config);
+    const { domains, ...others } = fileCfg;
+    return { ...others, domains: domains?.map(mapDomain) };
+  } catch {
+    return {};
+  }
 };

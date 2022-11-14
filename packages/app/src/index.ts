@@ -77,7 +77,7 @@ const registerParsers = (config: Config): void => {
   );
 };
 
-const main = async (): Promise<void> => {
+export const main = async (): Promise<void> => {
   const configPath = getConfigFilePath();
   const logLevel = process.env.CF_DNS_LOG_LEVEL ?? "info";
   const logger = pino.default({ level: logLevel });
@@ -95,5 +95,3 @@ const main = async (): Promise<void> => {
     logger.info("Cloudflare DDNS end");
   }
 };
-
-main();

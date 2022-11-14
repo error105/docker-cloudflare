@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=node:16-alpine
+ARG BASE_IMAGE=node:18-alpine
 ARG OVERLAY_VERSION=v2.2.0.1
 
 FROM $BASE_IMAGE as builder
